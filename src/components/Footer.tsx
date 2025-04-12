@@ -1,3 +1,6 @@
+import AppStoreIcon from "./Icons/appStore";
+import GooglePlayBadge from "./Icons/googlePlay";
+
 export default function Footer() {
   return (
     <footer className="bg-[#009DDC] text-white py-10 px-4">
@@ -18,8 +21,8 @@ export default function Footer() {
           <div>
             <p className="mb-2">Download App</p>
             <div className="flex gap-2">
-              <img src="/images/appstore.png" alt="App Store" className="h-10" />
-              <img src="/images/playstore.png" alt="Google Play" className="h-10" />
+            <GooglePlayBadge width={100} height={100}/>
+            <AppStoreIcon  width={100} height={100}/>
             </div>
           </div>
         </div>
