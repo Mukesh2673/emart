@@ -1,5 +1,8 @@
 'use client';
 
+import { useAppDispatch } from "@/app/store/hooks";
+import { increment } from "@/app/store/slices/counterSlice";
+
 const products = [
   { name: "Galaxy S22 Ultra", price: 92999, offerPrice: 79999 },
   { name: "Galaxy M13", price: 14999, offerPrice: 8999 },
@@ -9,6 +12,8 @@ const products = [
 ];
 
 export default function ProductCarousel() {
+  const dispatch = useAppDispatch();
+
   return (
     <section className="my-6 mx-4 pt-5">
       <div className="flex justify-between items-center mb-4">
@@ -44,9 +49,14 @@ export default function ProductCarousel() {
               Save ₹{(product.price - product.offerPrice).toLocaleString()}
             </p>
             <div className="flex gap-2 mt-auto">
-              <button className="cursor-pointer flex items-center justify-center gap-2 bg-orange-400 hover:bg-orange-500 text-white text-sm font-semibold px-4 py-2 rounded w-1/2">
+              <button className="cursor-pointer flex items-center justify-center gap-2 bg-orange-400 hover:bg-orange-500 text-white text-sm font-semibold px-4 py-2 rounded w-1/2"
+              onClick={() => dispatch(increment())}
+              
+              >
                 <svg className="w-3 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h14l-2-9M9 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z" />
+                  <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h14l-2-9M9 21a1 1 0 100-2 1 1 0 000 2zm8 0a1 1 0 100-2 1 1 0 000 2z"
+                  
+                   />
                 </svg>
                 Add to Cart
               </button>
